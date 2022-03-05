@@ -14,7 +14,7 @@ on:
     types: [started]
     
 env:
-  ROM_URL: http://bigota.d.miui.com/20.4.27/miui_MIMIX3_20.4.27_8f7879221b_10.0.zip
+  ROM_URL: https://bigota.d.miui.com/V12.0.5.0.QFXCNXM/miui_CRUX_V12.0.5.0.QFXCNXM_63357f4009_10.0.zip
   ROM_NAME: MIUI
   BUILD_TYPE: ab
   TZ: Asia/Shanghai
@@ -60,6 +60,28 @@ jobs:
               cd $GITHUB_WORKSPACE/ErfanGSIs/output
               curl -sL https://git.io/file-transfer | sh
               ./transfer wet ./final/GSI.zip
-
+- name: Setup Node.js environment
+  uses: actions/setup-node@v3.0.0
+  with:
+    # Set always-auth in npmrc
+    always-auth: # optional, default is false
+    # Version Spec of the version to use.  Examples: 12.x, 10.15.1, >=10.15.0
+    node-version: # optional
+    # File containing the version Spec of the version to use.  Examples: .nvmrc, .node-version
+    node-version-file: # optional
+    # Target architecture for Node to use. Examples: x86, x64. Will use system architecture by default.
+    architecture: # optional
+    # Set this option if you want the action to check for the latest available version that satisfies the version spec
+    check-latest: # optional
+    # Optional registry to set up for auth. Will set the registry in a project level .npmrc and .yarnrc file, and set up auth to read in from env.NODE_AUTH_TOKEN
+    registry-url: # optional
+    # Optional scope for authenticating against scoped registries
+    scope: # optional
+    # Used to pull node distributions from node-versions.  Since there's a default, this is typically not supplied by the user.
+    token: # optional, default is ${{ github.token }}
+    # Used to specify a package manager for caching in the default directory. Supported values: npm, yarn, pnpm
+    cache: # optional
+    # Used to specify the path to a dependency file: package-lock.json, yarn.lock, etc. Supports wildcards or a list of file names for caching multiple dependencies.
+    cache-dependency-path: # optional
          
             
